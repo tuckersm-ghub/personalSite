@@ -1,12 +1,43 @@
 body{
-  background: rosybrown;
-  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+header, h1, button{
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  background: #730C0C;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+button{
+  padding: 25px 1em 10px 1em;
+}
+
+h1{
+  font-size: 54px;
+  font-weight: bold;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.synopsis{
+  background: #D3A98D;
+  padding: 100px;
+}
+
 .business-card{
   width: 300px;
-  background: white;
+  background: #ffffff;
   padding: 20px;
-  margin-top: 100px;
   text-align: center;
   font-size: 16px;
   margin-left: auto;
@@ -18,4 +49,8 @@ body{
 p{
   margin-bottom: 5px;
   margin-top: 5px;
+  text-align: center;
 }
+
+
+

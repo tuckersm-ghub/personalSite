@@ -32,6 +32,9 @@ h1{
 .synopsis{
   background: #D3A98D;
   padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .business-card{
@@ -42,9 +45,19 @@ h1{
   font-size: 16px;
   margin-left: auto;
   margin-right: auto; 
+  display: flex;
+  flex-direction: column;
 }
 .profile-image{
   max-width: 100%;
+  margin-bottom: 5%;
+}
+.line{
+  width: 200px;
+  height: 0.001px;
+  background: #656565;
+  display: block;
+  margin: 10px auto;
 }
 p{
   margin-bottom: 5px;
@@ -53,4 +66,10 @@ p{
 }
 
 
+@media (max-width: 600px){
 
+  header, h1, button{
+  font-size: 14px;
+  }
+
+}

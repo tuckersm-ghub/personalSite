@@ -2,8 +2,8 @@ body{
   margin: 0;
   padding: 0;
 }
-header, h1, button{
-  font-size: 24px;
+header, button{
+  font-size: 14px;
   font-weight: bold;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
@@ -21,15 +21,13 @@ header{
 }
 button{
   padding: 25px 1em 10px 1em;
+  width: 100%;
 }
 
-h1{
-  font-size: 54px;
-  font-weight: bold;
-  padding-left: 50px;
-  padding-right: 50px;
+.largeModeBTN{
+  display: none;
 }
-.synopsis{
+.advertisement{
   background: #D3A98D;
   padding: 100px;
   display: flex;
@@ -43,10 +41,11 @@ h1{
   padding: 20px;
   text-align: center;
   font-size: 16px;
-  margin-left: auto;
-  margin-right: auto; 
+  margin-left: 0px;
+  margin-right: 0px; 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .profile-image{
   max-width: 100%;
@@ -66,10 +65,60 @@ p{
 }
 
 
-@media (max-width: 600px){
+@media (min-width: 650px){
 
-  header, h1, button{
-  font-size: 14px;
+  button:not(.centerBTN){
+  font-size: 24px;
   }
-
+  .centerBTN{
+    font-size: 18px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
 }
+@media (min-width: 900px){
+
+  .largeModeBTN{
+    display: flex;
+    justify-content: center;
+  }
+  .design1{
+    background-color: #674b20;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transform: translateX(-100px);
+  }
+  
+  .design2a{
+    background-color: #674b20;
+    width: 50px;
+    height: 200px;
+    transform: skew(20deg) translateX(50px);
+    
+  }
+  .design2b{
+    background-color: #674b20;
+    width: 50px;
+    height: 200px;
+    transform: skew(-20deg) translateX(0px);
+  }
+  .business-card{
+    transform: translateX(-50px);
+  }
+  
+}
+@media (min-width: 1150px){
+  .design1{
+    transform: translateX(-240px);
+  }
+  .design2a{
+    transform: skew(20deg) translateX(190px);
+  }
+  .design2b{
+    transform: skew(-20deg) translateX(140px);
+  }
+}
+  
+
+

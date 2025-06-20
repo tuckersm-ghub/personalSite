@@ -22,6 +22,7 @@ header{
 button{
   padding: 25px 1em 10px 1em;
   width: 100%;
+  cursor: pointer;
 }
 
 .largeModeBTN{
@@ -67,10 +68,10 @@ p{
 
 @media (min-width: 650px){
 
-  button:not(.centerBTN){
+  button:not(.meBTN){
   font-size: 24px;
   }
-  .centerBTN{
+  .meBTN{
     font-size: 18px;
     padding-top: 22px;
     padding-bottom: 22px;

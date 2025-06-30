@@ -1,27 +1,42 @@
+
 function toHomePage(){
-    let btnClick = document.getElementById("homeBTN");
-    btnClick.addEventListener("click", () => {window.location.href = "index.html"});
+  let btnClick = document.getElementById("homeBTN");
+  btnClick.addEventListener("click", () => {window.location.href = "index.html"});
 }
+
 function toAboutPage(){
-    let btnClick= document.getElementById("aboutBTN");
-    btnClick.addEventListener("click", () => {window.location.href = "about.html"});
-
-    fetch('index.html').then(res => res.text()) //edit below function after learning fetch API
-    .then(htmlString => {
-        const parser = new DOMParser();
-        const indexdoc = parser.parseFromString(htmlString, 'text/html');
-
-        const indexHeader = indexdoc.querySelectorAll('button');
-        const aboutHeader = document.querySelector('header');
-
-        if (indexHeader && aboutHeader) {
-            aboutHeader.appendChild(indexHeader);
-        }
-    })
-  .catch(error => console.error('Failed to fetch html, error:', error));
-
+  let btnClick= document.getElementById("aboutBTN");
+  btnClick.addEventListener("click", () => {window.location.href = "about.html"});
 }
 
-toHomePage();
-toAboutPage();
+function toAchievementsPage(){
+  let btnClick = document.getElementById("achievementsBTN");
+  btnClick.addEventListener("click", () => {window.location.href = "achievements.html"});
+}
 
+function loadPageWithHeader() {
+  if(!document.querySelector('header')) {
+    fetch('index.html')
+          .then(response => response.text())
+          .then(htmlString => {
+              const parser = new DOMParser();
+              const indexDoc = parser.parseFromString(htmlString, 'text/html');
+              const headerElement = indexDoc.querySelector('header');
+              if (headerElement) {
+                  document.body.insertAdjacentElement('afterbegin', headerElement);
+                  toHomePage();
+                  toAboutPage();
+                  toAchievementsPage();
+              }
+
+          })
+          .catch(error => console.error('Failed to fetch header:', error));
+  }
+  
+  toHomePage();
+  toAboutPage();
+  toAchievementsPage();
+}
+
+
+loadPageWithHeader(); 

@@ -1,6 +1,8 @@
+/* Home page and general styling */
 body{
   margin: 0;
   padding: 0;
+  background-color: #D3A98D;
 }
 header, button{
   font-size: 14px;
@@ -29,7 +31,6 @@ button{
   display: none;
 }
 .advertisement{
-  background: #D3A98D;
   padding: 100px;
   display: flex;
   justify-content: center;
@@ -64,7 +65,15 @@ p{
   margin-top: 5px;
   text-align: center;
 }
+a{
+  color: #473213;
+}
 
+footer{
+  width: 100%;
+  height: 5vh;
+  background-color: #473213;
+}
 
 @media (min-width: 650px){
 
@@ -84,7 +93,7 @@ p{
     justify-content: center;
   }
   .design1{
-    background-color: #674b20;
+    background-color: #473213;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -92,7 +101,7 @@ p{
   }
   
   .design2a{
-    background-color: #674b20;
+    background-color: #473213;
     width: 50px;
     height: 200px;
     transform: skew(20deg) translateX(50px);
@@ -120,6 +129,47 @@ p{
     transform: skew(-20deg) translateX(140px);
   }
 }
-  
+/* About me page */
 
+#aboutParagraph{
+  color: #473213;
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
+  font-size: 18px;
+  margin: 20px;
+}
+.content{
+  display: block;
+  text-align: center;
+}
+#aboutimg{
+  margin: 20px;
+}
 
+#aboutTitle{
+  color: #730C0C;
+  font-size: 50px;
+}
+@media (min-width: 980px){
+  .content{
+  padding: 10vh;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  }
+  #aboutimg{
+  transform: translateX(-100px);
+  }
+  #aboutParagraph{
+  text-align: left;
+  padding-right: 275px;
+  margin: 0;
+  }
+}
+@media (min-height: 776px){
+  #aboutFoot{
+  transform: translateY(57px);
+  }
+}
+/* Achievements Page */

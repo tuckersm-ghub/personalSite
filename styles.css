@@ -69,6 +69,9 @@ a{
   color: #473213;
 }
 
+#design1, #design2a, #design2b{
+  display: none;
+}
 footer{
   width: 100%;
   height: 5vh;
@@ -92,7 +95,8 @@ footer{
     display: flex;
     justify-content: center;
   }
-  .design1{
+  #design1{
+    display: flex;
     background-color: #473213;
     width: 200px;
     height: 200px;
@@ -100,14 +104,16 @@ footer{
     transform: translateX(-100px);
   }
   
-  .design2a{
+  #design2a{
+    display: flex;
     background-color: #473213;
     width: 50px;
     height: 200px;
     transform: skew(20deg) translateX(50px);
     
   }
-  .design2b{
+  #design2b{
+    display: flex;
     background-color: #674b20;
     width: 50px;
     height: 200px;
@@ -119,13 +125,13 @@ footer{
   
 }
 @media (min-width: 1150px){
-  .design1{
+  #design1{
     transform: translateX(-240px);
   }
-  .design2a{
+  #design2a{
     transform: skew(20deg) translateX(190px);
   }
-  .design2b{
+  #design2b{
     transform: skew(-20deg) translateX(140px);
   }
 }
@@ -173,3 +179,9 @@ footer{
   }
 }
 /* Achievements Page */
+
+#resume{
+  height: auto;
+  display: block;
+  margin: 30px auto;
+}

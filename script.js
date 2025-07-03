@@ -10,6 +10,7 @@ function loadPageWithHeader() {
               const headerElement = indexDoc.querySelector('header');
               if (headerElement) {
                   document.body.insertAdjacentElement('afterbegin', headerElement);
+                  toExclamationMarkPage();
                   toHomePage();
                   toAboutPage();
                   toResumePage();
@@ -20,6 +21,7 @@ function loadPageWithHeader() {
           .catch(error => console.error('Failed to fetch header:', error));
   }
   else{
+    toExclamationMarkPage();
     toHomePage();
     toAboutPage();
     toResumePage();
@@ -27,14 +29,16 @@ function loadPageWithHeader() {
   }
 }
 
-function exclamationMark(){
+function toExclamationMarkPage(){
   let btnClick = document.getElementById("!BTN");
-  btnClick.addEventListener("click", () => {})
+  btnClick.addEventListener("click", () => {window.location.href = "!.html"})
+
 }
 
 function toHomePage(){
   let btnClick = document.getElementById("homeBTN");
   btnClick.addEventListener("click", () => {window.location.href = "index.html"});
+  loadFunFact();
 }
 
 function toAboutPage(){
@@ -54,26 +58,72 @@ function questionMark(){
       randomShape(document.getElementById("design1"), document.getElementById("design2a"), document.getElementById("design2b"));
     }
     else if(window.location.href.includes("about.html")){
-      
+      randomImage(document.getElementById("aboutimg"));
     }
     else if(window.location.href.includes("resume.html")){
-      
+      loadConfetti().then(() => {
+        confetti({
+          particleCount: 200,
+          spread: 130,
+          origin: { y: 0.6 },
+          ticks: 400
+          });
+        });
     }
   })
 }
 
+function loadFunFact(){
+  const currDate = new Date().toISOString().split("T")[0];
+  const dateFactRetrieved = localStorage.getItem("factDate");
 
+  const fact = document.createElement("p");
+  fact.id="excParagraph";
+
+  if(currDate===dateFactRetrieved && localStorage.getItem("factText")!==null){
+    fact.textContent = localStorage.getItem("factText");
+    document.body.appendChild(fact);
+  }
+  else{
+    fetch("https://uselessfacts.jsph.pl/random.json")
+      .then(response => response.json())
+        .then(funFact =>{
+          fact.textContent = funFact.text;
+          localStorage.setItem("factDate",currDate);
+          localStorage.setItem("factText",funFact.text);
+          document.body.appendChild(fact);
+        })
+    .catch(error => {
+      const errorMessage = document.createElement("p");
+      errorMessage.textContent = "No fun fact today";
+      errorMessage.id = "excError";
+      document.body.appendChild(errorMessage);
+    });
+  }
+}
 
 function randomShape(leftElement, rightElement1, rightElement2){
-  leftElement.style.width = (Math.random() * 50 + 200) + "px";
-  leftElement.style.height = (Math.random() * 50 + 200) + "px";
   leftElement.style.borderRadius = (Math.random() * 30 + 25) + "%";
-
-  rightElement1.style.width = (Math.random() * 50 + 10) + "px";
-  rightElement1.style.height = (Math.random() * 50 + 200) + "px";
   rightElement1.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  rightElement2.style.width = (Math.random() * 50 + 10) + "px";
-  rightElement2.style.height = (Math.random() * 50 + 200) + "px";
   rightElement2.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
+function randomImage(image){
+  let imgarr = ["Aimg1.jpeg", "Aimg2.jpeg", "Aimg3.jpeg", "Aimg4.jpeg"];
+  let currimg = image.getAttribute("src");
+  let newimg = "images/abtimages/" + imgarr[Math.floor(Math.random()*imgarr.length)];
+  while(currimg===newimg){
+    newimg = "images/abtimages/" + imgarr[Math.floor(Math.random()*imgarr.length)];
+  }
+  image.setAttribute("src",newimg);
+}
+
+function loadConfetti() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}

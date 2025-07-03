@@ -151,6 +151,8 @@ footer{
 }
 #aboutimg{
   margin: 20px;
+  width: 450px;
+  height: 500px;
 }
 
 #aboutTitle{
@@ -159,10 +161,13 @@ footer{
 }
 @media (min-width: 980px){
   .content{
-  padding: 10vh;
+  padding: 11vh;
   display: flex;
   align-items: center;
   text-align: left;
+  }
+  .text-container{
+    padding-right: 0;
   }
   #aboutimg{
   transform: translateX(-100px);
@@ -173,15 +178,45 @@ footer{
   margin: 0;
   }
 }
-@media (min-height: 776px){
+@media (min-height: 776px) {
   #aboutFoot{
-  transform: translateY(57px);
+  transform: translateY(100px);
   }
 }
+
 /* Achievements Page */
 
 #resume{
-  height: auto;
+  width: 90%;
+  height: 90%;
   display: block;
   margin: 30px auto;
+}
+@media (max-width: 546px){
+  #resumeFoot{
+   transform: translateY(57px); 
+  }
+}
+
+/* ! Page */
+
+#excTitle{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  color: #730C0C;
+  font-size: 50px;
+}
+
+#excParagraph, #excError{
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  color: #473213;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#excFooter{
+  transform: translateY(539px);
 }

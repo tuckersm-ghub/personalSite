@@ -211,10 +211,16 @@ footer{
 #excParagraph, #excError{
   display: flex;
   justify-content: center;
-  margin: 5%;
   color: #473213;
   font-size: 24px;
   font-weight: bold;
+}
+
+#excimg{
+  width: 30%;
+  height: 30%;
+  display: block;
+  margin: 30px auto;
 }
 
 #excFooter{

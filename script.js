@@ -32,13 +32,14 @@ function loadPageWithHeader() {
 function toExclamationMarkPage(){
   let btnClick = document.getElementById("!BTN");
   btnClick.addEventListener("click", () => {window.location.href = "!.html"})
-
+  if(window.location.href.includes("!.html")){
+    loadFunFact();
+  }
 }
 
 function toHomePage(){
   let btnClick = document.getElementById("homeBTN");
   btnClick.addEventListener("click", () => {window.location.href = "index.html"});
-  loadFunFact();
 }
 
 function toAboutPage(){
@@ -54,8 +55,8 @@ function toResumePage(){
 function questionMark(){
   let btnClick = document.getElementById("?BTN");
   btnClick.addEventListener("click", () => {
-    if(window.location.href.includes("index.html")){
-      randomShape(document.getElementById("design1"), document.getElementById("design2a"), document.getElementById("design2b"));
+    if(window.location.href.includes("!.html")){
+      WOWEffect();
     }
     else if(window.location.href.includes("about.html")){
       randomImage(document.getElementById("aboutimg"));
@@ -69,6 +70,9 @@ function questionMark(){
           ticks: 400
           });
         });
+    }
+    else{
+      randomShape(document.getElementById("design1"), document.getElementById("design2a"), document.getElementById("design2b"));
     }
   })
 }
@@ -126,4 +130,19 @@ function loadConfetti() {
         script.onerror = reject;
         document.head.appendChild(script);
     });
+}
+
+let imgTick = false;
+function WOWEffect(){
+  if(!imgTick){
+    const image =  document.createElement("img");
+    image.src = "images/WOW2.jpeg";
+    image.id="excimg";
+    document.body.appendChild(image);
+    imgTick=true;
+  }
+  const audioFeature = document.createElement("audio");
+  audioFeature.src = "audio/GG.mp3";
+  audioFeature.autoplay = true;
+  document.body.appendChild(audioFeature);
 }

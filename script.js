@@ -78,7 +78,7 @@ function questionMark(){
 }
 
 function loadFunFact(){
-  const currDate = new Date().toISOString().split("T")[0];
+  const currDate = new Date().toLocaleDateString("en-NY");
   const dateFactRetrieved = localStorage.getItem("factDate");
 
   const fact = document.createElement("p");

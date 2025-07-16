@@ -184,7 +184,7 @@ footer{
   }
 }
 
-/* Achievements Page */
+/* Resume Page */
 
 #resume{
   width: 90%;
@@ -197,7 +197,11 @@ footer{
    transform: translateY(57px); 
   }
 }
-
+#resumepar{
+  color:#473213;
+  margin-top: 30px;
+  font-weight: bold;
+}
 /* ! Page */
 
 #excTitle{
@@ -226,3 +230,4 @@ footer{
 #excFooter{
   transform: translateY(553px);
 }
+
